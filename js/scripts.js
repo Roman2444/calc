@@ -24,15 +24,20 @@ window.addEventListener('load', function(){
     inp2.addEventListener('keydown', checkNumbers)
 
     btn.addEventListener('click', function(){
-        if(oper.value==='+'){
-            res.innerHTML = (parseInt(inp1.value) + parseInt(inp2.value))
+        let num1 = parseInt(inp1.value);
+        let num2 = parseInt(inp2.value);
+        let result
+
+        if(oper.value==='+'){ 
+            result = num1 + num2
         } else if (oper.value==='-'){
-            res.innerHTML = (parseInt(inp1.value) - parseInt(inp2.value))
+            result = num1 - num2
         } else if (oper.value==='*'){
-            res.innerHTML = (parseInt(inp1.value) * parseInt(inp2.value))
+            result = num1 * num2
         } else if (oper.value==='/'){
-            res.innerHTML = (parseInt(inp1.value) / parseInt(inp2.value))
+            result = num1 / num2
         }
+        res.innerHTML = result 
         btn.disabled=true
     });
 });
