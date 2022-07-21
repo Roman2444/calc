@@ -11,6 +11,8 @@ window.addEventListener('load', function(){
        btn.disabled=false})
     inp2.addEventListener('keydown', function(){
        btn.disabled=false})
+    oper.addEventListener('change', function(){
+        btn.disabled=false})
 
     function checkNumbers(){
         if (event.key=='Backspace') {
