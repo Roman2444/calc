@@ -4,8 +4,10 @@ window.addEventListener('load', function(){
     let inp2 = document.querySelector('.inp2');
     let btn = document.querySelector('.go');
     let res = document.querySelector('.res');
+    let oper = document.querySelector('.operation')
 
-    inp1.addEventListener('keydown', function(){
+
+    inp1.addEventListener('keydown', function(){    
        btn.disabled=false})
     inp2.addEventListener('keydown', function(){
        btn.disabled=false})
@@ -22,13 +24,13 @@ window.addEventListener('load', function(){
     inp2.addEventListener('keydown', checkNumbers)
 
     btn.addEventListener('click', function(){
-        if(select.value==='+'){
+        if(oper.value==='+'){
             res.innerHTML = (parseInt(inp1.value) + parseInt(inp2.value))
-        } else if (select.value==='-'){
+        } else if (oper.value==='-'){
             res.innerHTML = (parseInt(inp1.value) - parseInt(inp2.value))
-        } else if (select.value==='*'){
+        } else if (oper.value==='*'){
             res.innerHTML = (parseInt(inp1.value) * parseInt(inp2.value))
-        } else if (select.value==='/'){
+        } else if (oper.value==='/'){
             res.innerHTML = (parseInt(inp1.value) / parseInt(inp2.value))
         }
         btn.disabled=true
