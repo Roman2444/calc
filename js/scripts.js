@@ -7,11 +7,11 @@ window.addEventListener('load', function(){
     let oper = document.querySelector('.operation')
 
 
-    inp1.addEventListener('keydown', function(){    
+    inp1.addEventListener('input', function(){    
        btn.disabled=false})
-    inp2.addEventListener('keydown', function(){
+    inp2.addEventListener('input', function(){
        btn.disabled=false})
-    oper.addEventListener('change', function(){
+    oper.addEventListener('input', function(){
         btn.disabled=false})
 
     function checkNumbers(){
@@ -40,7 +40,7 @@ window.addEventListener('load', function(){
             result = num1 / num2
         }
         res.innerHTML = result 
-        btn.disabled=true
+        btn.disabled = true
     });
 });
 
