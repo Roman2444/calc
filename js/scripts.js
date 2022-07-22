@@ -19,15 +19,10 @@ window.addEventListener('load', function(){
     // [inp1, inp2, oper].forEach(elem => elem.addEventListener('input', btnEnable));
 
     function checkNumbers(){
-        if (event.key=='Backspace') {
-            inp2.value.pop()
-        } else if(isNaN(event.key)|| event.key==' ') {
-            event.preventDefault()
-        }
+        this.value = this.value.replace(/[^0-9]/g,"")
     }
-    
-    inp1.addEventListener('keydown', checkNumbers)
-    inp2.addEventListener('keydown', checkNumbers)
+    inp1.addEventListener('input', checkNumbers)
+    inp2.addEventListener('input', checkNumbers)
 
     btn.addEventListener('click', function(){
         let num1 = parseInt(inp1.value);
