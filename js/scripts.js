@@ -6,13 +6,17 @@ window.addEventListener('load', function(){
     let res = document.querySelector('.res');
     let oper = document.querySelector('.operation')
 
-
-    inp1.addEventListener('input', function(){    
-       btn.disabled=false})
-    inp2.addEventListener('input', function(){
-       btn.disabled=false})
-    oper.addEventListener('input', function(){
-        btn.disabled=false})
+    inp1.addEventListener('input', btnEnable)
+    inp2.addEventListener('input', btnEnable)
+    oper.addEventListener('input', btnEnable)
+    
+    function btnEnable(){
+        btn.disabled = false;  
+    }
+    
+    // возможна более краткая запись
+    // (работает почему то только после function btnEnable??? мб цикл forEach не дает дойти до функции )
+    // [inp1, inp2, oper].forEach(elem => elem.addEventListener('input', btnEnable));
 
     function checkNumbers(){
         if (event.key=='Backspace') {
