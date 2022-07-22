@@ -38,6 +38,9 @@ window.addEventListener('load', function(){
         } else if (oper.value==='/'){
             result = num1 / num2
         }
+        if (isNaN(result)){
+            result='Ошибка'
+        }
         res.innerHTML = result 
         btn.disabled = true
     });
