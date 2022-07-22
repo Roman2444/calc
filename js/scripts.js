@@ -17,12 +17,16 @@ window.addEventListener('load', function(){
     // возможна более краткая запись
     // (работает почему то только после function btnEnable??? мб цикл forEach не дает дойти до функции )
     // [inp1, inp2, oper].forEach(elem => elem.addEventListener('input', btnEnable));
-
+    
+    [inp1, inp2].forEach(elem => elem.addEventListener('input', checkNumbers))
+    
     function checkNumbers(){
         this.value = this.value.replace(/[^0-9]/g,"")
     }
-    inp1.addEventListener('input', checkNumbers)
-    inp2.addEventListener('input', checkNumbers)
+
+    // inp1.addEventListener('input', checkNumbers)
+    // inp2.addEventListener('input', checkNumbers)git status
+    
 
     btn.addEventListener('click', function(){
         let num1 = parseInt(inp1.value);
@@ -37,6 +41,9 @@ window.addEventListener('load', function(){
             result = num1 * num2
         } else if (oper.value==='/'){
             result = num1 / num2
+        }
+        if (isNaN(result)) {
+            result= 'Ошибка'
         }
         res.innerHTML = result 
         btn.disabled = true
