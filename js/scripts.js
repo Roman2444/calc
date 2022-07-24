@@ -22,12 +22,6 @@ window.addEventListener('load', function(){
             oper.value='/'
         } 
     })
-    
-    // function checkNumbers(){
-    //     this.value = this.value.replace(/[^0-9]/g,"")
-    // }
-    // inp1.addEventListener('input', checkNumbers)
-    // inp2.addEventListener('input', checkNumbers)
 
     container.addEventListener('input', function(e){
         if (e.target.classList.contains('inp')){
