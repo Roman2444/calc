@@ -23,13 +23,18 @@ window.addEventListener('load', function(){
         } 
     })
     
-    function checkNumbers(){
-        this.value = this.value.replace(/[^0-9]/g,"")
-    }
-    inp1.addEventListener('input', checkNumbers)
-    inp2.addEventListener('input', checkNumbers)
+    // function checkNumbers(){
+    //     this.value = this.value.replace(/[^0-9]/g,"")
+    // }
+    // inp1.addEventListener('input', checkNumbers)
+    // inp2.addEventListener('input', checkNumbers)
 
-    let calculate = 
+    container.addEventListener('input', function(e){
+        if (e.target.classList.contains('inp')){
+            e.target.value=e.target.value.replace(/[^0-9]/g,"")
+        }
+    })
+
     btn.addEventListener('click', function(){
         let num1 = parseInt(inp1.value);
         let num2 = parseInt(inp2.value);
