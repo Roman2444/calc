@@ -7,8 +7,11 @@ window.addEventListener('load', function(){
     let res = document.querySelector('.res');
     let oper = document.querySelector('.operation')
 
-    container.addEventListener('input', function(){
+    container.addEventListener('input', function(e){
         btn.disabled = false;  
+        if (e.target.classList.contains('inp')){
+            e.target.value=e.target.value.replace(/[^0-9]/g,"")
+        }
     })
 
     this.document.addEventListener('keydown', function(e) {
@@ -21,12 +24,6 @@ window.addEventListener('load', function(){
         } else if (e.key === '/'){
             oper.value='/'
         } 
-    })
-
-    container.addEventListener('input', function(e){
-        if (e.target.classList.contains('inp')){
-            e.target.value=e.target.value.replace(/[^0-9]/g,"")
-        }
     })
 
     btn.addEventListener('click', function(){
