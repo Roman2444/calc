@@ -9,25 +9,15 @@
     </head>
     <body>
        <div class="container">
-        <form class="myForm">
-<!-- скрипт для сортировки ввода
-            <script> 
-function checkPhoneKey(key) {
-  return (key >= '0' && key <= '9') || key == '+' || key == '(' || key == ')' || key == '-' ||
-    key == 'ArrowLeft' || key == 'ArrowRight' || key == 'Delete' || key == 'Backspace';
-}
-            </script>
--->
-<!-- onkeydown="return checkPhoneKey(event.key) запускает скрипт сортировки ввода -->
-            <input onkeydown="return checkPhoneKey(event.key)" type="tel" class="inp1">
+        <form clagiss="myForm">
+            <input type="text" class="inp1 inp">
             <select class = "operation">
-<!--                <option >выберите операцию</option>-->
                 <option value="+">+</option>
                 <option value="-">-</option>
                 <option value="*">*</option>
                 <option value="/">/</option>
             </select>
-            <input type="text" class="inp2">
+            <input type="text" class="inp2 inp">
             <input  type="button" class="go" value="="   >
             <span class="res"></span>
         </form>

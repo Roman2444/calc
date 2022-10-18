@@ -1,52 +1,56 @@
 window.addEventListener('load', function(){
 
+    let container = document.querySelector('.container');
     let inp1 = document.querySelector('.inp1');
     let inp2 = document.querySelector('.inp2');
     let btn = document.querySelector('.go');
     let res = document.querySelector('.res');
     let oper = document.querySelector('.operation')
 
-    inp1.addEventListener('input', btnEnable)
-    inp2.addEventListener('input', btnEnable)
-    oper.addEventListener('input', btnEnable)
+    const operations = {
+        '+': (num1, num2) => num1 + num2,
+        '-': (num1, num2) => num1 - num2,
+        '*': (num1, num2) => num1 * num2,
+        '/': (num1, num2) => num1 / num2,
+    };
     
-    function btnEnable(){
-        btn.disabled = false;  
-    }
-    
-    // возможна более краткая запись
-    // (работает почему то только после function btnEnable??? мб цикл forEach не дает дойти до функции )
-    // [inp1, inp2, oper].forEach(elem => elem.addEventListener('input', btnEnable));
-    
-    [inp1, inp2].forEach(elem => elem.addEventListener('input', checkNumbers))
-    
-    function checkNumbers(){
-        this.value = this.value.replace(/[^0-9]/g,"")
-    }
-
-    // inp1.addEventListener('input', checkNumbers)
-    // inp2.addEventListener('input', checkNumbers)git status
-    
-
-    btn.addEventListener('click', function(){
+    function calculate(){
         let num1 = parseInt(inp1.value);
         let num2 = parseInt(inp2.value);
-        let result
+        let result = operations[oper.value](num1, num2);
 
-        if(oper.value==='+'){ 
-            result = num1 + num2
-        } else if (oper.value==='-'){
-            result = num1 - num2
-        } else if (oper.value==='*'){
-            result = num1 * num2
-        } else if (oper.value==='/'){
-            result = num1 / num2
+        if (isNaN(result)){
+            result='Ошибка'
         }
         if (isNaN(result)) {
             result= 'Ошибка'
         }
         res.innerHTML = result 
         btn.disabled = true
-    });
+    }
+
+    btn.addEventListener('click', calculate);
+
+    container.addEventListener('input', function(e){
+        btn.disabled = false;  
+        if (e.target.classList.contains('inp')){
+            e.target.value=e.target.value.replace(/[^0-9]/g,"")
+        }
+    })
+
+
+    this.document.addEventListener('keydown', function(e) {
+        if (e.key === '+'){
+            oper.value='+'
+        } else if (e.key === '-'){
+            oper.value='-'
+        } else if (e.key === '*'){
+            oper.value='*'
+        } else if (e.key === '/'){
+            oper.value='/'
+        } else if (e.key === 'Enter'){
+            calculate()
+        } 
+    })
 });
 
